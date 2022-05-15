@@ -1,3 +1,6 @@
+// "@emotion/react"には以下が必須
+/** @jsxImportSource @emotion/react */
+
 import { css } from "@emotion/react";
 
 export const TopPage = () => {
