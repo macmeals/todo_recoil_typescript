@@ -4,13 +4,6 @@
 import { css } from "@emotion/react";
 
 export const TodoRegister = () => {
-  // const registerStyle = css`
-  //   display: flex;
-  //   justify-content: center;
-  //   flex-direction: column;
-  //   align-items: center;
-  // `;
-
   const registerStyles = css({
     display: "flex",
     justifyContent: "center",
@@ -18,24 +11,14 @@ export const TodoRegister = () => {
     alignItems: "center",
   });
 
-  // const matrixStyle = css`
-  //   display: flex;
-  //   width: 50vw;
-  //   justify-content: space-between;
-  // `;
-
   const matrixStyles = css({
     display: "flex",
     width: "50vw",
     justifyContent: "space-between",
   });
 
-  // const inputStyle = css`
-  //   width: 600px;
-  // `;
-
   const inputStyles = css({
-    width: "600", // 600px
+    width: "600px",
   });
 
   return (

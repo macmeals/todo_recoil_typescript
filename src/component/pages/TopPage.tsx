@@ -1,16 +1,11 @@
 // "@emotion/react"には以下が必須
 /** @jsxImportSource @emotion/react */
 
+import { FC } from "react";
 import { css } from "@emotion/react";
+import { Link } from "react-router-dom";
 
-export const TopPage = () => {
-  // const topStyle = css`
-  //   display: flex;
-  //   justify-content: center;
-  //   flex-direction: column;
-  //   align-items: center;
-  // `;
-
+export const TopPage: FC = () => {
   //TypeScriptでEmotionのCSSを記載。
   const topStyles = css({
     display: "flex",
@@ -21,10 +16,10 @@ export const TopPage = () => {
 
   return (
     <div>
-      {/* <div css={topStyle}> */}
       <div css={topStyles}>
         <h1>Todoアプリ</h1>
       </div>
+      <Link to="/todoregister">Todo登録</Link>
     </div>
   );
 };

@@ -20,5 +20,8 @@
     "sourceType": "module"
   },
   "plugins": ["react", "@typescript-eslint"],
-  "rules": {}
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+    //これがないと、 error 'React' must be in scope when using JSXと怒られる。
+  }
 }

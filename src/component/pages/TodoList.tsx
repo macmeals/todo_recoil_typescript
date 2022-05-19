@@ -5,13 +5,6 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
 export const TodoList = () => {
-  // const todoStyle = css`
-  //   display: flex;
-  //   justify-content: center;
-  //   flex-direction: column;
-  //   align-items: center;
-  // `;
-
   const todoStyles = css({
     display: "flex",
     justifyContent: "center",
@@ -19,20 +12,10 @@ export const TodoList = () => {
     alignItems: "center",
   });
 
-  // const todoTitleStyle = css`
-  //   width: 80vw;
-  //   background-color: #eee6e6;
-  // `;
-
   const todoTitleStyles = css({
     width: "80vw",
     backgroundColor: "#eee6e6",
   });
-
-  // const todoListStyle = css`
-  //   width: 80vw;
-  //   padding-inline-start: 0;
-  // `;
 
   const todoListStyles = css({
     width: "80vw",
