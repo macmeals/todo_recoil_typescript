@@ -22,14 +22,11 @@ export const TodoRegister = () => {
   });
 
   return (
-    // <div css={registerStyle}>
     <div css={registerStyles}>
       <h2>Todo登録</h2>
       {/* ピカチュウの画像をImageコンポーネントで呼び出す */}
       {/* <Image url={apiPokemonBack} /> */}
-      {/* <div css={matrixStyle}> */}
       <div css={matrixStyles}>
-        {/* <div css={registerStyle}> */}
         <div css={registerStyles}>
           <p>１．Todo開始日</p>
           {/* カスタムHookから取得した関数startDayFetchを利用 */}
@@ -40,7 +37,6 @@ export const TodoRegister = () => {
             <p>開始日を選択して下さい</p>
           )} */}
         </div>
-        {/* <div css={registerStyle}> */}
         <div css={registerStyles}>
           <p>２．Todo完了日</p>
           {/* カスタムHookから取得した関数endDayFetchを利用 */}
