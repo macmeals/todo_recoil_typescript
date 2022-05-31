@@ -2,18 +2,31 @@ import { createContext } from "react";
 import { useState } from "react";
 import type { ReactNode } from "react";
 
-//contextの器を作成
-export const TodoContext = createContext({});
+//imcompletTodoの型を定義
+type Todos = {
+  id: number;
+  todo: string;
+  completeFlag: boolean;
+  from: string;
+  end: string;
+};
+
+//contextの器を作成.合わせてCreateContextの型も作成する。
+//アサーションで型も付与する。
+export const TodoContext = createContext(
+  {} as {
+    newTodo: string;
+    setNewTodo: React.Dispatch<React.SetStateAction<string>>;
+    incompleteTodos: Todos[];
+    setIncompleteTodos: React.Dispatch<React.SetStateAction<Todos[]>>;
+    startDate: string | undefined;
+    setStartDate: React.Dispatch<React.SetStateAction<string | undefined>>;
+    endDate: string | undefined;
+    setEndDate: React.Dispatch<React.SetStateAction<string | undefined>>;
+  }
+);
 
 export const TodoProvider = (props: { children: ReactNode }) => {
-  type Todos = {
-    id: number;
-    todo: string;
-    completeFlag: boolean;
-    from: string;
-    end: string;
-  };
-
   //  Todo内容を格納する変数newTodo、状態を格納する変数setNewTodoをセット
   //  型はジェネリクスで指定(string型)
   const [newTodo, setNewTodo] = useState<string>("");
