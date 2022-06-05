@@ -4,10 +4,15 @@
 import { css } from "@emotion/react";
 import { useEffect } from "react";
 import { Image } from "../Image";
+import { Button } from "../Button";
+import { LinkText } from "../LinkText";
 
 //日付用ライブラリ：react-day-pickerをインポート
 import { DayPicker } from "react-day-picker"; // v8.0.５
 import "react-day-picker/dist/style.css"; // v8.0.5
+
+//message用ライブラリ：react-hot-toastをインポート
+import { Toaster } from "react-hot-toast";
 
 //カスタムHookを読み込み
 import { useImageGet } from "../../hook/useImageGet"; //画像取得
@@ -18,14 +23,11 @@ import { useAddTodos } from "../../hook/useAddtodos"; //Todo登録処理
 import { useContext } from "react";
 import { TodoContext } from "../provider/TodoProvider";
 
-type Props = {
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
 export const TodoRegister = () => {
   // カスタムHookから変数apiPokemonBack,,関数imageFetchを取得
   const { apiPokemonBack, imageFetch } = useImageGet();
   // カスタムHookから変数apiPokemonBack,,関数imageFetchを取得
-  const { valueFetch, startDayFetch, endDayFetch } = useAddTodos();
+  const { todoFetch, valueFetch, startDayFetch, endDayFetch } = useAddTodos();
 
   // グローバルStateの変数群を取り出す。
   const { newTodo, startDate, endDate } = useContext(TodoContext);
@@ -88,9 +90,9 @@ export const TodoRegister = () => {
         onChange={valueFetch}
       />
       {/* Buttonコンポーネントにアロー関数でカスタムHookから取得した関数todoFetchを渡す。 */}
-      {/* <Button onClickEvent={() => todoFetch()}>登録</Button>
+      <Button onClickEvent={() => todoFetch()}>登録</Button>
       <Toaster />
-      <LinkText destination={"/todolist"}>Todo一覧へ</LinkText> */}
+      <LinkText destination={"/todolist"}>Todo一覧へ</LinkText>
     </div>
   );
 };
