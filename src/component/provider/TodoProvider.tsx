@@ -41,9 +41,7 @@ export const TodoProvider = (props: { children: ReactNode }) => {
 
   // Todo内容、開始日時、終了日時を格納する変数incompleteTodos、状態を格納する変数setIncompleteTodosをセット
   // 型はジェネリクスで指定(配列,要素もTodoで指定)
-  const [incompleteTodos, setIncompleteTodos] = useState<Todos[]>([
-    { id: 0, todo: "test", completeFlag: false, from: "1/1", end: "2/2" },
-  ]);
+  const [incompleteTodos, setIncompleteTodos] = useState<Todos[]>([]);
 
   //TodoContext.Providerで挟むProps
   const { children } = props;

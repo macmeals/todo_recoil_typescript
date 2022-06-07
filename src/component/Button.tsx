@@ -8,7 +8,7 @@ import type { ReactNode } from "react";
 export const Button = memo(
   //propsの型を付与する。
   (props: {
-    onClickEvent: React.MouseEventHandler<HTMLButtonElement>;
+    onClickEvent: (event: React.MouseEventHandler<HTMLButtonElement>) => void;
     children: ReactNode;
   }) => {
     const { onClickEvent } = props;
