@@ -19,7 +19,7 @@ export const useAddTodos = () => {
     setIncompleteTodos,
   } = useContext(TodoContext);
 
-  //Todoを追加する処理：関数todoFetchVoidFunction
+  //Todoを追加する処理：関数todoFetchVoidFunction : React.MouseEventHandler<HTMLButtonElement>
   const todoFetch: VoidFunction = () => {
     if (newTodo === "") return;
     const newTodos = [
@@ -39,6 +39,7 @@ export const useAddTodos = () => {
     toast.success("Todoを登録しました.");
     setStartDate(undefined); // 開始日をリセット
     setEndDate(undefined); // 終了日をリセット
+    console.log(incompleteTodos);
   };
 
   //todoタスクのテキストボックスで入力した値を保存する

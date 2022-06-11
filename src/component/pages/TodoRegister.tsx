@@ -89,7 +89,7 @@ export const TodoRegister = () => {
         // カスタムHookから取得した関数valueFetchを利用
         onChange={valueFetch}
       />
-      {/* Buttonコンポーネントにアロー関数でカスタムHookから取得した関数todoFetchを渡す。 */}
+      {/* Buttonコンポーネントにア ロー関数でカスタムHookから取得した関数todoFetchを渡す。 */}
       <Button onClickEvent={() => todoFetch()}>登録</Button>
       <Toaster />
       <LinkText destination={"/todolist"}>Todo一覧へ</LinkText>

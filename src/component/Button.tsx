@@ -6,9 +6,9 @@ import { memo } from "react";
 import type { ReactNode } from "react";
 
 export const Button = memo(
-  //propsの型を付与する。
+  //propsの型を付与する。 onClickEventはonClickイベントの型。
   (props: {
-    onClickEvent: (event: React.MouseEventHandler<HTMLButtonElement>) => void;
+    onClickEvent: React.MouseEventHandler<HTMLButtonElement>;
     children: ReactNode;
   }) => {
     const { onClickEvent } = props;
@@ -38,8 +38,9 @@ export const Button = memo(
     return (
       <div>
         <StyledButton
-          onClick={() => {
-            onClickEvent;
+          //eventのeを引数にする。
+          onClick={(e) => {
+            onClickEvent(e);
           }}
         >
           {props.children}
