@@ -28,7 +28,7 @@ export const Router = () => {
         ))}
       </Route>
       <Route path="todolist">
-        {/* Map関数の展開した値：route1に型：mapTypesをつける */}
+        {/* Map関数の展開した値：route２に型：mapTypesをつける */}
         {TodoListRoutes.map((route2: mapTypes) => (
           <Route
             key={route2.path}
