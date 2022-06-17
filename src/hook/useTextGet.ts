@@ -13,7 +13,7 @@ export const useTextGet = () => {
     userId: number;
     id: number;
     title: string;
-    completed: Boolean;
+    completed: boolean;
   };
 
   // useJsonのState初期値はnullとする。
