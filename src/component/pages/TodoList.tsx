@@ -3,6 +3,19 @@
 
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import { Button } from "../Button";
+import { LinkText } from "../LinkText";
+import { useEffect } from "react";
+
+//グローバルStateを使う為のuseContextを読み込み
+//TodoListContextを読み込み
+import { useContext } from "react";
+import { TodoContext } from "../provider/TodoProvider";
+
+// カスタムHook（JSONPlaceHolder用の読み込み,Todo削除、Todo完了）
+import { useTextGet } from "../../hook/useTextGet";
+import { useDeleteTodo } from "../../hook/useDeletTodo";
+import { useCompleteTodo } from "../../hook/useCompleteTodo";
 
 export const TodoList = () => {
   const todoStyles = css({
@@ -22,29 +35,14 @@ export const TodoList = () => {
     paddingInlineStart: "0",
   });
 
-  // StyledListからpropsを受け取り、todoFlagがtrueの場合、text-decoration:line-throughとなる
-  // const StyledList = styled.li`
-  //   display: flex;
-  //   padding-left: 20px;
-  //   align-items: center;
-  //   > p {
-  //     width: 20vw;
-  //     text-decoration: ${(props) => (props.todoflag ? "line-through" : "")};
-  //     margin-block-start: 0;
-  //     margin-block-end: 0;
-  //   }
-  //   &:nth-of-type(2n) {
-  //     background-color: #ffeded;
-  //   }
-  // `;
-
   const StyledLists = styled("li")`
     display: flex;
     padding-left: 20px;
     align-items: center;
     > p {
       width: 20vw;
-      text-decoration: "line-through";
+      text-decoration: ${(props: { todoflag: boolean }) =>
+        props.todoflag ? "line-through" : ""};
       margin-block-start: 0;
       margin-block-end: 0;
     }
@@ -62,26 +60,26 @@ export const TodoList = () => {
     }
   `;
 
-  // const { incompleteTodos } = useContext(TodoListContext)
+  const { incompleteTodos } = useContext(TodoContext);
 
   // カスタムHookから変数useImage,関数imageFetchを取得
-  // const { textTitle, jsonFetch } = useTextGet()
+  const { textTitle, jsonFetch } = useTextGet();
   // カスタムHookから関数deleteTodoを取得
-  // const { deleteTodo } = useDeleteTodo()
+  const { deleteTodo } = useDeleteTodo();
   // カスタムHookから関数completeTodoを取得
-  // const { completeTodo } = useCompleteTodo()
+  const { completeTodo } = useCompleteTodo();
 
-  // TodoList.jsx時のみ関数jsonFetch()を実施
-  // useEffect(() => {
-  //   jsonFetch()
-  // }, [])
+  // TodoList.jsxの初回レンダリング後のs時のみ関数jsonFetch()を実施
+  useEffect(() => {
+    jsonFetch();
+  }, []);
 
   return (
     // <div css={todoStyle}>
     <div css={todoStyles}>
       <h2>Todo一覧</h2>
       {/* カスタムHookで読み込んだJSONPlaceHolderのデータを格納した変数apiJson*/}
-      {/* <p>{textTitle}</p> */}
+      <p>{textTitle}</p>
       {/* <div css={todoTitleStyle}> */}
       <div css={todoTitleStyles}>
         <TodoTitles>
@@ -92,24 +90,21 @@ export const TodoList = () => {
       </div>
       {/* <ul css={todoListStyle}> */}
       <ul css={todoListStyles}>
-        <StyledLists>
-          <p>test</p>
-        </StyledLists>
-        {/* {incompleteTodos.map((todos, index) => {
+        {incompleteTodos.map((todos, index) => {
           return (
-            <StyledList key={todos.id} todoflag={todos.completeFlag}>
+            <StyledLists key={todos.id} todoflag={todos.completeFlag}>
               <p>{todos.from}</p>
               <p>{todos.end}</p>
-              <p>{todos.todo}</p> */}
-        {/* Buttonコンポーネントにアロー関数でカスタムHookで読み込んだ関数deleteTodoを渡す。indexは引数 */}
-        {/* <Button onClickEvent={() => deleteTodo(index)}>削除</Button> */}
-        {/* Buttonコンポーネントにアロー関数でカスタムHookで読み込んだ関数completeTodoを渡す。indexは引数 */}
-        {/* <Button onClickEvent={() => completeTodo(index)}>完了</Button> */}
-        {/* </StyledList> */}
-        {/* ); */}
-        {/* })} */}
+              <p>{todos.todo}</p>
+              {/* Buttonコンポーネントにアロー関数でカスタムHookで読み込んだ関数deleteTodoを渡す。indexは引数 */}
+              <Button onClickEvent={() => deleteTodo(index)}>削除</Button>
+              {/* Buttonコンポーネントにアロー関数でカスタムHookで読み込んだ関数completeTodoを渡す。indexは引数 */}
+              <Button onClickEvent={() => completeTodo(index)}>完了</Button>
+            </StyledLists>
+          );
+        })}
       </ul>
-      {/* <LinkText destination={"/todoregister"}>Todo登録</LinkText> */}
+      <LinkText destination={"/todoregister"}>Todo登録</LinkText>
     </div>
   );
 };

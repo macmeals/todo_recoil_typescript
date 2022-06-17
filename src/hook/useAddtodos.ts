@@ -36,7 +36,7 @@ export const useAddTodos = () => {
     setIncompleteTodos(newTodos);
     // setNewTodoに空の状態を登録
     setNewTodo("");
-    toast.success("Todoを登録しました.");
+    toast.success("Todoを登録しました."); //react-hot-toastのライブラリを導入
     setStartDate(undefined); // 開始日をリセット
     setEndDate(undefined); // 終了日をリセット
     console.log(incompleteTodos);
