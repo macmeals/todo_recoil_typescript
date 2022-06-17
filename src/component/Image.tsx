@@ -1,4 +1,9 @@
-export const Image = (props: { url: string }) => {
+import type { FC } from "react";
+type props = {
+  url: string;
+};
+
+export const Image: FC<props> = (props) => {
   const { url } = props;
   return (
     <div>

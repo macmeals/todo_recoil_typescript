@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { Image } from "../Image";
 import { Button } from "../Button";
 import { LinkText } from "../LinkText";
+import { FC } from "react";
 
 //日付用ライブラリ：react-day-pickerをインポート
 import { DayPicker } from "react-day-picker"; // v8.0.５
@@ -23,7 +24,7 @@ import { useAddTodos } from "../../hook/useAddtodos"; //Todo登録処理
 import { useContext } from "react";
 import { TodoContext } from "../provider/TodoProvider";
 
-export const TodoRegister = () => {
+export const TodoRegister: FC = () => {
   // カスタムHookから変数apiPokemonBack,,関数imageFetchを取得
   const { apiPokemonBack, imageFetch } = useImageGet();
   // カスタムHookから変数apiPokemonBack,,関数imageFetchを取得
