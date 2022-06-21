@@ -4,6 +4,10 @@ import { useContext } from "react";
 import { TodoContext } from "../component/provider/TodoProvider";
 import { useCallback } from "react";
 
+// type Index = {
+//   index: number;
+// };
+
 export const useDeleteTodo = () => {
   // グローバルStateの変数を引き出す
   const { incompleteTodos, setIncompleteTodos } = useContext(TodoContext);
