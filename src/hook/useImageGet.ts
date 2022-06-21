@@ -21,10 +21,11 @@ export const useImageGet = () => {
     try {
       //  ポケモンAPIからピカチュウの情報をaxiosで取得
       //  型はジェネリクスで指定(PoKemon型)
-      const response = await axios.get<Pokemon>(url);
+      const { data } = await axios.get<Pokemon>(url);
+
       //  ピカチュウの前面、背面のURLを取得
-      const frontUrl = response.data.sprites.front_default;
-      const backUrl = response.data.sprites.back_female;
+      const frontUrl = data.sprites.front_default;
+      const backUrl = data.sprites.back_female;
       // ポケモンAPIのピカチュウ情報を格納
       setApiPokemonfront(frontUrl);
       setApiPokemonBack(backUrl);
