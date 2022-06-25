@@ -9,13 +9,16 @@ const rootElement = document.getElementById("root") as HTMLElement;
 const root = createRoot(rootElement);
 
 // グローバルStateをImport
-import { TodoProvider } from "./component/provider/TodoProvider";
+// import { TodoProvider } from "./component/provider/TodoProvider";
+
+// グローバルStateをRecoilとして利用するため、それをインポート
+import { RecoilRoot } from "recoil";
 
 root.render(
   <StrictMode>
-    <TodoProvider>
+    <RecoilRoot>
       <App />
-    </TodoProvider>
+    </RecoilRoot>
   </StrictMode>
 );
 

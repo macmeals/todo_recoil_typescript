@@ -23,6 +23,15 @@
   "rules": {
     "react/react-in-jsx-scope": "off",
     //これがないと、 error 'React' must be in scope when using JSXと怒られる。
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+
+    // Typeはパスカルケースでないとエラーを出す。
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "typeAlias",
+        "format": ["PascalCase"]
+      }
+    ]
   }
 }
