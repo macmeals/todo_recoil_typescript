@@ -6,13 +6,13 @@ import { memo } from "react";
 import type { ReactNode } from "react";
 import type { FC } from "react";
 
-type props = {
+type Props = {
   onClickEvent: React.MouseEventHandler<HTMLButtonElement>;
   children: ReactNode;
 };
 
 //Buttonコンポーネントに型をつける。
-export const Button: FC<props> = memo((props) => {
+export const Button: FC<Props> = memo((props) => {
   const { onClickEvent } = props;
   const StyledButton = styled.button`
     color: black;

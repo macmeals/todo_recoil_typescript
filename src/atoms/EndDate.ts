@@ -2,7 +2,7 @@
 
 import { atom } from "recoil";
 
-export const EndDateAtom = atom<string | undefined>({
+export const EndDate = atom<string | undefined>({
   key: "enddate",
   default: undefined,
 });

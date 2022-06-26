@@ -7,12 +7,12 @@ import { memo } from "react"; //LinkTextコンポーネントのメモ化
 import type { ReactNode } from "react";
 import type { FC } from "react";
 
-type props = {
+type Props = {
   destination: string;
   children: ReactNode;
 };
 
-export const LinkText: FC<props> = memo((props) => {
+export const LinkText: FC<Props> = memo((props) => {
   const { destination } = props;
   const linkstyle = css`
     font-size: 20px;

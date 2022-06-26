@@ -12,7 +12,7 @@ type Todos = {
 };
 
 // TodoListの情報をAtomで状態管理を行う。
-export const TodoListAtom = atom<Todos[]>({
+export const TodoList = atom<Todos[]>({
   key: "incompleteTodo",
   default: [],
 });

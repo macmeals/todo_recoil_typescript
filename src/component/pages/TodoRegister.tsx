@@ -21,8 +21,32 @@ import { useAddTodos } from "../../hook/useAddtodos"; //Todo登録処理
 
 //グローバルStateを使う為のuseContextを読み込み
 //TodoListContextを読み込み
-import { useContext } from "react";
-import { TodoContext } from "../provider/TodoProvider";
+// import { useContext } from "react";
+// import { TodoContext } from "../provider/TodoProvider";
+
+//Recoil及び各種ATOMを読み込み
+import { useRecoilValue } from "recoil";
+import { NewTodo } from "../../atoms/NewTodo";
+import { StartDate } from "../../atoms/StartDate";
+import { EndDate } from "../../atoms/EndDate";
+
+//emotionのスタイルをつける
+const registerStyles = css({
+  display: "flex",
+  justifyContent: "center",
+  flexDirection: "column",
+  alignItems: "center",
+});
+
+const matrixStyles = css({
+  display: "flex",
+  width: "50vw",
+  justifyContent: "space-between",
+});
+
+const inputStyles = css({
+  width: "600px",
+});
 
 export const TodoRegister: FC = () => {
   // カスタムHookから変数apiPokemonBack,,関数imageFetchを取得
@@ -31,29 +55,17 @@ export const TodoRegister: FC = () => {
   const { todoFetch, valueFetch, startDayFetch, endDayFetch } = useAddTodos();
 
   // グローバルStateの変数群を取り出す。
-  const { newTodo, startDate, endDate } = useContext(TodoContext);
+  // const { newTodo, startDate, endDate } = useContext(TodoContext);
+
+  //RecoilのAtomのNewTodo,startDate,endDateから値を取得する。（Todo内容、開始日、終了日）
+  const newTodo = useRecoilValue(NewTodo);
+  const startDate = useRecoilValue(StartDate);
+  const endDate = useRecoilValue(EndDate);
 
   // Todoページマウント時のみ関数imageFetch()を実施
   useEffect(() => {
     imageFetch();
   }, []);
-
-  const registerStyles = css({
-    display: "flex",
-    justifyContent: "center",
-    flexDirection: "column",
-    alignItems: "center",
-  });
-
-  const matrixStyles = css({
-    display: "flex",
-    width: "50vw",
-    justifyContent: "space-between",
-  });
-
-  const inputStyles = css({
-    width: "600px",
-  });
 
   return (
     <div css={registerStyles}>

@@ -1,9 +1,9 @@
 import type { FC } from "react";
-type props = {
+type Props = {
   url: string;
 };
 
-export const Image: FC<props> = (props) => {
+export const Image: FC<Props> = (props) => {
   const { url } = props;
   return (
     <div>
