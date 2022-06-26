@@ -5,7 +5,7 @@
 
 //Recoilを読み込み及び各種ATOMを読み込み
 import { useRecoilState } from "recoil";
-import { TodoList } from "../atoms/TodoList";
+import { TodoLists } from "../atoms/TodoList";
 import { NewTodo } from "../atoms/NewTodo";
 import { StartDate } from "../atoms/StartDate";
 import { EndDate } from "../atoms/EndDate";
@@ -37,7 +37,7 @@ export const useAddTodos = () => {
 
   // 未完了のTodo変数incompleteTodos、更新関数setIncompleteTodosをセット
   const [incompleteTodos, setIncompleteTodos] =
-    useRecoilState<Todos[]>(TodoList);
+    useRecoilState<Todos[]>(TodoLists);
 
   // Todo内容の変数newTodo、更新関数setNewTodoをセット
   const [newTodo, setNewTodo] = useRecoilState<string>(NewTodo); // 開始日の変数startDate,更新関数setStartDateをセット

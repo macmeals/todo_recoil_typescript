@@ -1,16 +1,15 @@
 //グローバルStateを使う為のuseContextを読み込み
 //TodoListContextを読み込み
-import { useContext } from "react";
-import { TodoContext } from "../component/provider/TodoProvider";
+// import { useContext } from "react";
+// import { TodoContext } from "../component/provider/TodoProvider";
 import { useCallback } from "react";
-
-// type Index = {
-//   index: number;
-// };
+import { useRecoilState } from "recoil";
+import { TodoLists } from "../atoms/TodoList";
 
 export const useDeleteTodo = () => {
   // グローバルStateの変数を引き出す
-  const { incompleteTodos, setIncompleteTodos } = useContext(TodoContext);
+  // const { incompleteTodos, setIncompleteTodos } = useContext(TodoContext);
+  const [incompleteTodos, setIncompleteTodos] = useRecoilState(TodoLists);
 
   //Todoを削除する処理：関数deleteTodo
   const deleteTodo = useCallback(
