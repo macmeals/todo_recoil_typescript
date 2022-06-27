@@ -6,8 +6,8 @@ import { useState } from "react";
 import { useCallback } from "react";
 
 const url = "https://jsonplaceholder.typicode.com/todos";
-// useJsonのAPIから取得できる値の型をつける
-type JsonPlace = {
+// useJsonのAPIからTodoデータを取得できる値の型をつける
+type Todo = {
   userId: number;
   id: number;
   title: string;
@@ -22,7 +22,7 @@ export const useTextGet = () => {
       // JSONPlaceHolderのAPIからユーザーの情報をaxiosで取得
       // 型はJsonPlacess（オブジェクトの配列）
       // const response = await axios.get<JsonPlace[]>(url);
-      const { data } = await axios.get<JsonPlace[]>(url);
+      const { data } = await axios.get<Todo[]>(url);
       const title = data[1].title;
       setTextTitle(title);
     } catch {

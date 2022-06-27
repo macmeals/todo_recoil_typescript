@@ -18,7 +18,7 @@ import { TodoLists } from "../../atoms/TodoList";
 
 // カスタムHook（JSONPlaceHolder用の読み込み,Todo削除、Todo完了）
 import { useTextGet } from "../../hook/useTextGet";
-import { useDeleteTodo } from "../../hook/useDeletTodo";
+import { useDeleteTodo } from "../../hook/useDeleteTodo";
 import { useCompleteTodo } from "../../hook/useCompleteTodo";
 
 //imcompletTodoの型を定義
