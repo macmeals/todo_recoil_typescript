@@ -7,11 +7,6 @@ import { Button } from "../Button";
 import { LinkText } from "../LinkText";
 import { useEffect } from "react";
 
-//グローバルStateを使う為のuseContextを読み込み
-//TodoListContextを読み込み
-// import { useContext } from "react";
-// import { TodoContext } from "../provider/TodoProvider";
-
 //RecoilとAtomを読み込み
 import { useRecoilValue } from "recoil";
 import { TodoLists } from "../../atoms/TodoList";
@@ -73,8 +68,6 @@ const TodoTitles = styled("div")`
 `;
 
 export const TodoList = () => {
-  // const { incompleteTodos } = useContext(TodoContext);
-
   // 未完了のTodoを格納している変数incompleteTodosの値を取得
   const incompleteTodos = useRecoilValue<Todos[]>(TodoLists);
 

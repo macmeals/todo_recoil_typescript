@@ -1,8 +1,3 @@
-//グローバルStateを使う為のuseContextを読み込み
-//TodoListContextを読み込み
-// import { useContext } from "react";
-// import { TodoContext } from "../component/provider/TodoProvider";
-
 //Recoilを読み込み及び各種ATOMを読み込み
 import { useRecoilState } from "recoil";
 import { TodoLists } from "../atoms/TodoList";
@@ -23,18 +18,6 @@ type Todos = {
 };
 
 export const useAddTodos = () => {
-  // // グローバルStateの変数群を取り出す。
-  // const {
-  //   newTodo,
-  //   setNewTodo,
-  //   startDate,
-  //   setStartDate,
-  //   endDate,
-  //   setEndDate,
-  //   incompleteTodos,
-  //   setIncompleteTodos,
-  // } = useContext(TodoContext);
-
   // 未完了のTodo変数incompleteTodos、更新関数setIncompleteTodosをセット
   const [incompleteTodos, setIncompleteTodos] =
     useRecoilState<Todos[]>(TodoLists);
@@ -85,7 +68,6 @@ export const useAddTodos = () => {
   // クリックしてStarddayを取得するので、onClickedStartDayとする
   const onClickedStartDay = (day: Date) => {
     const clickedStartday = day.toLocaleDateString();
-    // setStartDate(day.toLocaleDateString());
     setStartDate(clickedStartday);
   };
 

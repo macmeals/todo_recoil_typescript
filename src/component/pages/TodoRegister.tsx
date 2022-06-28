@@ -10,8 +10,6 @@ import { FC } from "react";
 
 //日付用ライブラリ：react-day-pickerをインポート
 import { DayPicker } from "react-day-picker"; // v8.0.５
-// import "react-day-picker/dist/style.css";
-// v8.0.5
 
 //message用ライブラリ：react-hot-toastをインポート
 import { Toaster } from "react-hot-toast";
@@ -19,11 +17,6 @@ import { Toaster } from "react-hot-toast";
 //カスタムHookを読み込み
 import { useImageGet } from "../../hook/useImageGet"; //画像取得
 import { useAddTodos } from "../../hook/useAddTodos"; //Todo登録処理
-
-//グローバルStateを使う為のuseContextを読み込み
-//TodoListContextを読み込み
-// import { useContext } from "react";
-// import { TodoContext } from "../provider/TodoProvider";
 
 //Recoil及び各種ATOMを読み込み
 import { useRecoilValue } from "recoil";
@@ -55,9 +48,6 @@ export const TodoRegister: FC = () => {
   // カスタムHookから変数apiPokemonBack,,関数imageFetchを取得
   const { onAddTodoLists, onTodoValue, onClickedStartDay, onClickedEndDay } =
     useAddTodos();
-
-  // グローバルStateの変数群を取り出す。
-  // const { newTodo, startDate, endDate } = useContext(TodoContext);
 
   //RecoilのAtomのNewTodo,startDate,endDateから値を取得する。（Todo内容、開始日、終了日）
   const newTodo = useRecoilValue(NewTodo);
