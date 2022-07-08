@@ -20,8 +20,6 @@ export const useTextGet = () => {
   const jsonFetch = useCallback(async () => {
     try {
       // JSONPlaceHolderのAPIからユーザーの情報をaxiosで取得
-      // 型はJsonPlacess（オブジェクトの配列）
-      // const response = await axios.get<JsonPlace[]>(url);
       const { data } = await axios.get<Todo[]>(url);
       const title = data[1].title;
       setTextTitle(title);

@@ -9,7 +9,7 @@ import { EndDate } from "../atoms/EndDate";
 import toast from "react-hot-toast";
 
 //imcompletTodoの型を定義
-type Todos = {
+type Todo = {
   id: number;
   todo: string;
   completeFlag: boolean;
@@ -20,7 +20,7 @@ type Todos = {
 export const useAddTodos = () => {
   // 未完了のTodo変数incompleteTodos、更新関数setIncompleteTodosをセット
   const [incompleteTodos, setIncompleteTodos] =
-    useRecoilState<Todos[]>(TodoLists);
+    useRecoilState<Todo[]>(TodoLists);
 
   // Todo内容の変数newTodo、更新関数setNewTodoをセット
   const [newTodo, setNewTodo] = useRecoilState<string>(NewTodo); // 開始日の変数startDate,更新関数setStartDateをセット

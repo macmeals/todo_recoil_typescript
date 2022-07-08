@@ -3,6 +3,6 @@
 import { atom } from "recoil";
 
 export const EndDate = atom<string | undefined>({
-  key: "enddate",
+  key: "endDate",
   default: undefined,
 });

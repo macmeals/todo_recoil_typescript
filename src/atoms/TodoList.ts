@@ -3,7 +3,7 @@
 import { atom } from "recoil";
 
 //imcompletTodoの型を定義
-type Todos = {
+type Todo = {
   id: number;
   todo: string;
   completeFlag: boolean;
@@ -12,7 +12,7 @@ type Todos = {
 };
 
 // TodoListの情報をAtomで状態管理を行う。
-export const TodoLists = atom<Todos[]>({
-  key: "incompleteTodo",
+export const TodoLists = atom<Todo[]>({
+  key: "inCompleteTodo",
   default: [],
 });

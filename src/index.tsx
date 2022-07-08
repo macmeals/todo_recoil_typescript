@@ -8,9 +8,6 @@ import { createRoot } from "react-dom/client";
 const rootElement = document.getElementById("root") as HTMLElement;
 const root = createRoot(rootElement);
 
-// グローバルStateをImport
-// import { TodoProvider } from "./component/provider/TodoProvider";
-
 // グローバルStateをRecoilとして利用するため、それをインポート
 import { RecoilRoot } from "recoil";
 
